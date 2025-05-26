@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+gunicorn
+python-multipart
+Pillow
+ultralytics
+numpy
+# For Azure App Service Linux (CPU), use CPU-specific torch wheels for smaller size & compatibility
+# Check PyTorch website (pytorch.org) for the latest CPU-only versions and install commands.
+# Example (replace with current recommended versions):
+torch
+torchvision

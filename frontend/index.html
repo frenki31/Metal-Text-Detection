@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metal-Text Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Metal & Text Detection</h1>
+
+        <div class="image-upload-display-area" id="imageUploadArea">
+            <input type="file" id="actualImageInput" accept="image/jpeg, image/png, image/gif">
+            <span id="uploadPrompt">Click here or drag & drop to upload an image</span>
+            <img id="previewImage" src="#" alt="Image Preview">
+            <div class="loader" id="loader"></div>
+        </div>
+
+        <button id="predictButton">Detect Objects</button>
+        <div id="errorMessage" class="error-message" style="display:none;"></div>
+
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
