@@ -8,13 +8,7 @@ const resultsHeader = document.getElementById('resultsHeader');
 const loader = document.getElementById('loader');
 const errorMessageDiv = document.getElementById('errorMessage');
 
-var API_ENDPOINT = "http://localhost:8000/predict";
-
-if (window.location.hostname.includes("azurewebsites.net")) {
-    API_ENDPOINT = window.location.origin + "/predict";
-} else if (window.location.protocol === "file:") {
-    console.log("Frontend running locally as a file. API endpoint: " + API_ENDPOINT);
-}
+var API_ENDPOINT = "/predict";
 
 let currentFile = null;
 let isImagePreviewing = false; // State to track if an image is selected and previewed
