@@ -1,9 +1,8 @@
-# main.py
 import io
 import os
 from fastapi import FastAPI, File, UploadFile, HTTPException
-from fastapi.responses import JSONResponse, FileResponse, HTMLResponse # Added FileResponse/HTMLResponse
-from fastapi.staticfiles import StaticFiles # Added StaticFiles
+from fastapi.responses import JSONResponse, FileResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image, ImageDraw, ImageFont
 from ultralytics import YOLO
@@ -13,15 +12,12 @@ import numpy as np
 import torch
 import traceback
 
-# --- Configuration ---
 MODEL_PATH = "best.pt"
-CLASS_NAMES_CONFIG = ['text', 'metal'] # <<< --- !!! VERIFY/UPDATE THIS !!!
-STATIC_DIR = "frontend" # Directory for your frontend files
-# --- End Configuration ---
+CLASS_NAMES_CONFIG = ['text', 'metal']
+STATIC_DIR = "frontend"
 
 app = FastAPI(title="MetalText YOLOv8 Detection API")
 
-# --- CORS Middleware (still good to have, especially if you might access API from other places) ---
 origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
