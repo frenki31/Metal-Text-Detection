@@ -14,7 +14,7 @@ import traceback
 
 MODEL_PATH = "best.pt"
 CLASS_NAMES_CONFIG = ['text', 'metal']
-STATIC_DIR = "frontend"
+STATIC_DIR = "static"
 
 app = FastAPI(title="MetalText YOLOv8 Detection API")
 

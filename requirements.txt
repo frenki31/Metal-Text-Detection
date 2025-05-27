@@ -1,9 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 fastapi
-uvicorn
-gunicorn
+uvicorn[standard]
 python-multipart
 Pillow
 ultralytics
 numpy
-torch
-torchvision
+torch==2.1.0+cpu
+torchvision==0.16.0+cpu
