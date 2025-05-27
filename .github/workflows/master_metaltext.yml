@@ -41,7 +41,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-          path: release.zip
+          path: |
+            release.zip
+            !venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -58,13 +60,17 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: python-app
+
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
+
       
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_30C8B890DC3E4AE6AC0986485671E167 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_AB8A5876896F4825A442F69DC8A76F8D }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_807AB68A40F44DF19BB287085BA7DB56 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_9DFBCC91E00D409E886F24344695C1F8 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_93C4F5099D60436E96F65B4C71AF3BEC }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_BF6D85D10A1B444E8F3B2A0B75DE8A59 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -72,5 +78,4 @@ jobs:
         with:
           app-name: 'metaltext'
           slot-name: 'Production'
-          package: release.zip
           
